@@ -111,7 +111,11 @@ align-items: center;
 .atm-system__keys {
   height: 33.33px;
   background-color: #6D6D6D;
+  font-size: 25px;
+  text-align: center;
 }
+
+
 .atm-system__action {
   height: 33.33px;
 }

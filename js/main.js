@@ -8,17 +8,33 @@ const inputCard = document.querySelector(".atm-system__card");
 const keys = document.querySelector(".atm-system__input-keys");
 let pin = [];
 let state = "";
+const reset = document.querySelector("#btn-cancel");
+
+reset.addEventListener("click", (event) => {
+  window.location.reload()
+})
+
 
 const validatePin = (pin_keys) => {
   if (pin_keys.toLocaleString().replaceAll(",", "") === "0000") {
     // Convertimos el array a string y reemplazamos las , (comas) y validamos que el resultado sea igual a 0000
     console.log(pin_keys)
     screen.innerText = "Pin ingresado es correcto";
+    setTimeout(() => {[]
+      screen.innerText = "Selecciona Operacion a Realizar ";
+    }, 1200);
   } else {
-    console.log(pin_keys)
     screen.innerText = "Pin ingresado es incorrecto";
+    pin = [];
+    setTimeout(() => {
+      screen.innerText = "Ingrese su pin";
+      state = "login";
+    }, 1000);
   }
-};
+  }
+
+
+
 
 keys.addEventListener("click", (event) => {
   if (event.target.id) {
@@ -49,31 +65,3 @@ window.addEventListener("load", () => {
   screen.innerText = "Bienvenido al ATM";
 });
 
-// function awake(parametro) {
-//   console.log(parametro);
-// }
-
-// const sleep = (parametro) => {
-//   console.log(parametro);
-// };
-
-// const sum = (a, b) => {
-//   return a + b;
-// };
-
-// const sum = (a, b) => a + b;
-// const sum = (a, b) => (a + b);
-
-// awake("awake");
-// sleep("sleep");
-// sum(3, 5);
-
-// console.log(sum(4, 8))
-
-// PascalCase -> para clases
-// camelCase -> para variables
-// snake_case -> keys en un objeto
-
-// const arr = ['victor', 37]
-// const obj = {name: 'victor', age: 37}
-// console.log(obj.name, obj.age)
